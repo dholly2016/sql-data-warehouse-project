@@ -1,4 +1,16 @@
+/*
+===============================================================================
+DDL Script: Exploratory Data Analysis (EDA)
+===============================================================================
+Script Purpose:
+    This script is to explore and analyze the dataset, comparing dimensions by measures 
 
+    
+
+Usage:
+    - These script can be queried directly for analytics and reporting.
+===============================================================================
+*/
 
 
 -- Explore All objects in the Database
