@@ -137,7 +137,21 @@ ON ps.product_key = fs.product_key
 GROUP BY ps.product_name 
 ORDER BY total_revenue 
 
+-- Find the top 10 customers who have generated the highest revenue 
+SELECT TOP 10 c.customer_key, c.firstname, c.lastname,
+	SUM(f.sales_amount) total_revenue 
+FROM gold.fact_sales f LEFT JOIN gold.dim_customers c
+ON c.customer_key = f.customer_key
+GROUP BY c.customer_key,c.firstname,c.lastname
+ORDER BY total_revenue DESC;
 
+-- The 3 customers with the fewest orders placed 
+SELECT TOP 3 c.customer_key, c.firstname, c.lastname,
+	COUNT(DISTINCT order_number) total_orders 
+FROM gold.fact_sales f LEFT JOIN gold.dim_customers c
+ON c.customer_key = f.customer_key
+GROUP BY c.customer_key,c.firstname,c.lastname
+ORDER BY total_orders ASC;
 
 
 
